@@ -3,10 +3,92 @@
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+        <link rel="shortcut icon" type="image/png" href="img/icon.png" />
+
+        <link rel="stylesheet" href="css/style.css" />
+
+        <script defer src="js/login.js"></script>
+        <script defer src="js/workoutl_list.js"></script>
         <title>Workout Diary</title>
     </head>
     <body>
-        <h1>나만의 운동 일기장</h1>
-        <p>다른 브랜치에서 가져오기</p>
+        <!-- 전체를 감싸는 박스 -->
+        <div id="wrap">
+            <!-- top 로고 박스 -->
+            <h1 class="logo">Workout Diary</h1>
+
+            <!-- 로그인 & 환영 메세지 -->
+            <div class="mid_box">
+                <!-- 로그인 form -->
+                <form class="login_form">
+                    <input required type="text" class="login_input" />
+                    <input type="submit" value="로그인" class="login_btn" />
+                </form>
+
+                <!-- 환영 메세지 -->
+                <h1 class="greeting hidden">000 님의 운동 일기</h1>
+
+                <!-- 운동 추가 버튼 -->
+                <button class="workout_add">운동 추가</button>
+            </div>
+
+            <ul class="workouts">
+                <!-- 운동 입력 form -->
+                <form class="form hidden">
+                    <div class="form_row">
+                        <label class="form_label">운동 부위</label>
+                        <select class="form_input form_input-type">
+                            <option value="select">선택</option>
+                            <option value="back">등/이두</option>
+                            <option value="chest">가슴/삼두</option>
+                            <option value="leg">하체/어깨</option>
+                        </select>
+                    </div>
+                    <div class="form_row">
+                        <label class="form_label">기구</label>
+                        <input class="form_input form_input-machine" />
+                    </div>
+                    <div class="form_row">
+                        <label class="form_label">중량</label>
+                        <input class="form_input form_input-machine" />
+                    </div>
+                    <div class="form_row">
+                        <label class="form_label">횟수</label>
+                        <input class="form_input form_input-machine" />
+                    </div>
+                    <div class="form_row">
+                        <label class="form_label">세트</label>
+                        <input class="form_input form_input-machine" />
+                    </div>
+
+                    <button class="form_btn">OK</button>
+                </form>
+
+                <!-- 운동 리스트 추가 -->
+                <!-- <li class="workout" data-id="1234567890">
+                    <h2 class="workout_title">Today Workout : 등/이두</h2>
+                    <div class="workout_details">
+                        <span class="workout_icon">🏋️</span>
+                        <span class="workout_value">벤치프레스</span>
+                    </div>
+                    <div class="workout__details">
+                        <span class="workout_icon">🔥</span>
+                        <span class="workout_value">100</span>
+                        <span class="workout_unit">kg</span>
+                    </div>
+                    <div class="workout__details">
+                        <span class="workout_icon">🎯</span>
+                        <span class="workout_value">12</span>
+                        <span class="workout_unit">회</span>
+                    </div>
+                    <div class="workout__details">
+                        <span class="workout_icon">⚡️</span>
+                        <span class="workout_value">4</span>
+                        <span class="workout_unit">set</span>
+                    </div>
+                </li> -->
+            </ul>
+        </div>
     </body>
 </html>

@@ -1,0 +1,229 @@
+@import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable.min.css');
+@import url('https://fonts.googleapis.com/css2?family=Nanum+Pen+Script&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Matemasie&display=swap');
+
+:root {
+    --color-brand--1: #ffb545;
+    --color-brand--2: linear-gradient(to top left, #6fb1fc, #0052d4);
+    --color-brand--3: #aed4ff;
+
+    --color-dark--1: #2d3439;
+    --color-dark--2: #42484d;
+    --color-dark--3: #6e6e6e;
+
+    --color-light--2: #f9f9f9;
+    --color-light--3: #d4d4d4;
+    --color-light--4: #888888;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: inherit;
+}
+
+html {
+    font-size: 62.5%;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Pretendard', sans-serif;
+    color: var(--color-dark--1);
+    font-weight: 400;
+    line-height: 1.6;
+    height: 100vh;
+    overscroll-behavior-y: none;
+
+    background: var(--color-brand--2);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#wrap {
+    display: flex;
+    flex-basis: 50rem;
+    padding: 3rem 5rem 4rem 5rem;
+    flex-direction: column;
+    border-radius: 0.5rem;
+
+    background-color: var(--color-light--2);
+    box-shadow: 2px 2px 1rem rgba(0, 0, 0, 0.2);
+}
+.logo {
+    font-family: 'Matemasie', sans-serif;
+    align-self: center;
+    font-size: 3.5rem;
+    color: var(--color-brand--1);
+    margin-bottom: 0.5rem;
+}
+
+/* ///////////////////////////////////////////////////////// */
+/* 로그인 박스 & 환영 메세지 */
+.mid_box {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+.login_form {
+    display: flex;
+    gap: 1rem;
+    padding-top: 2rem;
+
+    display: none;
+}
+.login_form .login_input {
+    width: 15rem;
+    background-color: #fff;
+    border: none;
+    text-align: center;
+    border-radius: 0.5rem;
+    padding: 0 1rem;
+    box-shadow: 0 0 0.2rem rgba(0, 0, 0, 0.3);
+}
+.login_form .login_input:focus {
+    outline: none;
+}
+.login_form .login_btn {
+    /* width: 100px; */
+    line-height: 1;
+    color: #fff;
+    background: var(--color-brand--2);
+    border: none;
+    padding: 1rem 2rem;
+    border-radius: 2rem;
+}
+.greeting {
+    font-size: 2.5rem;
+    text-align: center;
+    color: var(--color-dark--2);
+
+    font-family: 'Nanum Pen Script', cursive;
+    margin-bottom: 1rem;
+}
+/* .greeting.hidden {
+    display: none;
+} */
+
+/* 운동 추가 버튼 */
+.workout_add {
+    line-height: 1;
+    color: var(--color-dark--2);
+    font-weight: 700;
+    background: var(--color-light--2);
+    border: 1px dashed var(--color-dark--3);
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+
+    padding: 0.8rem 1.8rem;
+    border-radius: 2rem;
+    margin-bottom: 2rem;
+    transition: transform 0.2s;
+}
+.workout_add:hover {
+    transform: translateY(-5%);
+}
+
+/* ///////////////////////////////////////////////////////// */
+/* 운동 기록 폼 */
+.form {
+    background-color: var(--color-light--3);
+    border-radius: 0.3rem;
+    padding: 1.5rem 2.75rem;
+    margin-bottom: 1.75rem;
+
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.5rem 2.5rem;
+
+    /* Match height and activity boxes */
+    height: 12rem;
+    transition: all 0.5s, transform 1ms;
+}
+
+/* hidden */
+/* .form.hidden {
+    transform: translateY(-30rem);
+    height: 0;
+    padding: 0 2.25rem;
+    margin-bottom: 0;
+    opacity: 0;
+} */
+
+.form_row {
+    display: flex;
+    align-items: center;
+}
+.form_label {
+    flex: 0 0 50%;
+    font-size: 1.5rem;
+    font-weight: 600;
+}
+.form_input {
+    width: 100%;
+    padding: 0.3rem 0.5rem;
+    font-family: inherit;
+    font-size: 1.4rem;
+    border: none;
+    border-radius: 0.3rem;
+    background-color: var(--color-light--2);
+    transition: all 0.2s;
+}
+.form_input:focus {
+    outline: none;
+    background-color: #fff;
+}
+.form_btn {
+    display: none;
+}
+
+/* ///////////////////////////////////////////////////////// */
+/* 운동 기록 리스트 표시 */
+.workouts {
+    list-style: none;
+    height: 50vh;
+    overflow-y: scroll;
+    overflow-x: hidden;
+}
+.workouts::-webkit-scrollbar {
+    width: 0;
+}
+
+.workout {
+    background-color: var(--color-dark--2);
+    border-radius: 0.3rem;
+    padding: 1.5rem 2rem;
+    margin-bottom: 1.75rem;
+    cursor: pointer;
+
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    gap: 0.75rem 1rem;
+    color: var(--color-light--2);
+    border-left: 0.7rem solid var(--color-brand--3);
+}
+.workout_title {
+    font-size: 2rem;
+    font-weight: 600;
+    grid-column: 1 / -1;
+}
+.workout_details {
+    display: flex;
+    align-items: baseline;
+}
+.workout_icon {
+    font-size: 1.5rem;
+    margin-right: 0.1rem;
+    height: 0.28rem;
+}
+.workout_value {
+    font-size: 1.3rem;
+    margin-right: 0.2rem;
+}
+.workout_unit {
+    font-size: 1.1rem;
+    color: var(--color-light--3);
+    text-transform: uppercase;
+    font-weight: 800;
+}
