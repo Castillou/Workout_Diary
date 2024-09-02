@@ -3,7 +3,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Matemasie&display=swap');
 
 :root {
-    --color-brand--1: #ffb545;
+    --color-brand--1: #ffbd2d;
     --color-brand--2: linear-gradient(to top left, #6fb1fc, #0052d4);
     --color-brand--3: #aed4ff;
 
@@ -39,22 +39,74 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
+    gap: 1rem;
 }
 
+img {
+    vertical-align: top;
+}
+
+/* ///////////////////////////////////////////////////////// */
+/* 운동 이미지 업로드 박스 [TEST] */
+.img_box {
+    width: 50rem;
+    height: 50rem;
+    border-radius: 0.5rem;
+    border-top: 3rem solid var(--color-light--3);
+
+    background-color: var(--color-light--);
+    position: relative;
+
+    transition: width 1s;
+}
+.img_box img {
+    display: block;
+    width: 100%;
+    /* margin-top: -3rem; */
+    /* border-radius: 0.5rem; */
+}
+.dot_box {
+    position: absolute;
+    top: -2.1rem;
+    left: 1rem;
+    display: flex;
+    gap: 1rem;
+}
+.dot_box > li {
+    width: 1.2rem;
+    height: 1.2rem;
+    border-radius: 100%;
+    list-style-type: none;
+}
+.dot1 {
+    background-color: #ff5f56;
+}
+.dot2 {
+    background-color: #ffbd2d;
+}
+.dot3 {
+    background-color: #27c93f;
+}
+
+/* ///////////////////////////////////////////////////////// */
+/* Wrap */
 #wrap {
     display: flex;
     flex-basis: 50rem;
-    padding: 3rem 5rem 4rem 5rem;
+    padding: 3rem 4rem;
     flex-direction: column;
     border-radius: 0.5rem;
 
     background-color: var(--color-light--2);
     box-shadow: 2px 2px 1rem rgba(0, 0, 0, 0.2);
+
+    position: relative;
 }
 .logo {
     font-family: 'Matemasie', sans-serif;
     align-self: center;
     font-size: 3.5rem;
+    text-align: center;
     color: var(--color-brand--1);
     margin-bottom: 0.5rem;
 }
@@ -99,16 +151,30 @@ body {
     border-radius: 0.5rem;
 }
 .welcome {
+    font-family: 'Nanum Pen Script', cursive;
     font-size: 2.5rem;
     text-align: center;
-    color: var(--color-dark--2);
+    color: var(--color-dark--1);
 
-    font-family: 'Nanum Pen Script', cursive;
     margin-bottom: 1rem;
+}
+
+/* 로그아웃 버튼 */
+.logout_btn {
+    width: 3rem;
+    height: 3rem;
+    border-radius: 100%;
+    border: none;
+    background-color: var(--color-light--3);
+
+    position: absolute;
+    top: 2rem;
+    right: -4rem;
 }
 
 /* 운동 추가 버튼 */
 .workout_add {
+    width: 10rem;
     line-height: 1;
     color: var(--color-dark--2);
     font-weight: 700;
@@ -116,7 +182,7 @@ body {
     border: 1px dashed var(--color-dark--3);
     box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
 
-    padding: 0.8rem 1.8rem;
+    padding: 0.8rem 0;
     border-radius: 2rem;
     margin-bottom: 2rem;
     transition: transform 0.2s;
@@ -227,13 +293,25 @@ body {
     display: none;
 }
 
+/* 추가 기능 : 이미지 박스 생성 */
+.img_box.hidden {
+    width: 0;
+    /* display: none; */
+}
+.dot_box.hidden {
+    display: none;
+}
+
 /* 로그인 시 step 2 : 로그인 폼 숨기고, 운동 리스트 높이 주기 */
 .login_form.hidden {
     display: none;
 }
-/* .workouts {
+.logout_btn.hidden {
+    display: none;
+}
+.workouts {
     height: 50vh;
-} */
+}
 
 /* 운동 추가 버튼 클릭 시 -> workout_form hidden class 제거 */
 .workout_form.hidden {
@@ -242,4 +320,8 @@ body {
     padding: 0 2.25rem;
     margin-bottom: 0;
     opacity: 0;
+}
+
+.workouts.hidden {
+    display: none;
 }

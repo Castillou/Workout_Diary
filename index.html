@@ -3,7 +3,6 @@
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
         <link rel="shortcut icon" type="image/png" href="img/icon.png" />
 
         <link rel="stylesheet" href="css/style.css" />
@@ -13,6 +12,14 @@
         <title>Workout Diary</title>
     </head>
     <body>
+        <div class="img_box hidden">
+            <img src="img/running.jpg" alt="" />
+            <ul class="dot_box hidden">
+                <li class="dot1"></li>
+                <li class="dot2"></li>
+                <li class="dot3"></li>
+            </ul>
+        </div>
         <!-- 전체를 감싸는 박스 -->
         <div id="wrap">
             <!-- top 로고 박스 -->
@@ -21,13 +28,13 @@
             <!-- 로그인 & 환영 메세지 -->
             <div class="mid_box">
                 <!-- 로그인 form -->
-                <form class="login_form">
+                <form class="login_form hidden">
                     <input required type="text" class="login_input" />
                     <input type="submit" value="로그인" class="login_btn" />
                 </form>
 
                 <!-- 환영 메세지 -->
-                <h1 class="welcome hidden">000 님의 운동 일기</h1>
+                <h1 class="welcome hidden">000 님의 운동 일기📓</h1>
 
                 <!-- 운동 추가 버튼 -->
                 <button class="workout_add hidden">운동 추가</button>
@@ -51,15 +58,15 @@
                     </div>
                     <div class="workout_form_row">
                         <label class="workout_form_label">중량</label>
-                        <input class="workout_form_input workout_form_input-machine" />
+                        <input class="workout_form_input workout_form_input-weight" />
                     </div>
                     <div class="workout_form_row">
                         <label class="workout_form_label">횟수</label>
-                        <input class="workout_form_input workout_form_input-machine" />
+                        <input class="workout_form_input workout_form_input-reps" />
                     </div>
                     <div class="workout_form_row">
                         <label class="workout_form_label">세트</label>
-                        <input class="workout_form_input workout_form_input-machine" />
+                        <input class="workout_form_input workout_form_input-sets" />
                     </div>
 
                     <button class="workout_form_btn">OK</button>
@@ -89,6 +96,10 @@
                     </div>
                 </li> -->
             </ul>
+
+            <button class="logout_btn hidden">
+                <img src="img/log-out.svg" alt="" />
+            </button>
         </div>
     </body>
 </html>
