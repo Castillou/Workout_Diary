@@ -3,16 +3,23 @@
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
         <link rel="shortcut icon" type="image/png" href="img/icon.png" />
 
         <link rel="stylesheet" href="css/style.css" />
 
-        <script defer src="js/login.js"></script>
-        <script defer src="js/workoutl_list.js"></script>
+        <script defer src="js/script.js"></script>
+
         <title>Workout Diary</title>
     </head>
     <body>
+        <div class="img_box hidden">
+            <img alt="workout image" class="workout_img" />
+            <ul class="dot_box hidden">
+                <li class="dot1"></li>
+                <li class="dot2"></li>
+                <li class="dot3"></li>
+            </ul>
+        </div>
         <!-- 전체를 감싸는 박스 -->
         <div id="wrap">
             <!-- top 로고 박스 -->
@@ -21,28 +28,28 @@
             <!-- 로그인 & 환영 메세지 -->
             <div class="mid_box">
                 <!-- 로그인 form -->
-                <form class="login_form hidden">
+                <form class="login_form">
                     <input required type="text" class="login_input" />
                     <input type="submit" value="로그인" class="login_btn" />
                 </form>
 
                 <!-- 환영 메세지 -->
-                <h1 class="welcome hidden">000 님의 운동 일기</h1>
+                <h1 class="welcome hidden">000 님의 운동 일기📓</h1>
 
                 <!-- 운동 추가 버튼 -->
                 <button class="workout_add hidden">운동 추가</button>
             </div>
 
-            <ul class="workouts">
+            <ul class="workouts hidden">
                 <!-- 운동 입력 form -->
                 <form class="workout_form hidden">
                     <div class="workout_form_row">
                         <label class="workout_form_label">운동 부위</label>
                         <select class="workout_form_input workout_form_input-type">
-                            <option value="select">선택</option>
-                            <option value="back">등/이두</option>
-                            <option value="chest">가슴/삼두</option>
-                            <option value="leg">하체/어깨</option>
+                            <option value="Select">선택</option>
+                            <option value="Back">등/이두</option>
+                            <option value="Chest">가슴/삼두</option>
+                            <option value="Leg">하체/어깨</option>
                         </select>
                     </div>
                     <div class="workout_form_row">
@@ -51,15 +58,15 @@
                     </div>
                     <div class="workout_form_row">
                         <label class="workout_form_label">중량</label>
-                        <input class="workout_form_input workout_form_input-machine" />
+                        <input class="workout_form_input workout_form_input-weight" />
                     </div>
                     <div class="workout_form_row">
                         <label class="workout_form_label">횟수</label>
-                        <input class="workout_form_input workout_form_input-machine" />
+                        <input class="workout_form_input workout_form_input-reps" />
                     </div>
                     <div class="workout_form_row">
                         <label class="workout_form_label">세트</label>
-                        <input class="workout_form_input workout_form_input-machine" />
+                        <input class="workout_form_input workout_form_input-sets" />
                     </div>
 
                     <button class="workout_form_btn">OK</button>
@@ -89,6 +96,10 @@
                     </div>
                 </li> -->
             </ul>
+
+            <button class="logout_btn hidden">
+                <img src="img/log-out.svg" alt="" />
+            </button>
         </div>
     </body>
 </html>
