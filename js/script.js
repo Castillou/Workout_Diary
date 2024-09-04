@@ -47,11 +47,13 @@ class App {
     constructor() {
         this._randomImageLoad();
         this._getUsernameLocalStorage();
+        setInterval(this._getClock, 1000);
 
         loginForm.addEventListener('submit', this._loginSubmit.bind(this));
         workoutForm.addEventListener('submit', this._newWorkout.bind(this));
         workoutAdd.addEventListener('click', this._showWorkoutForm.bind(this));
         logoutBtn.addEventListener('click', this._init.bind(this));
+
         [introBtn, loginClose].forEach((el) => {
             el.addEventListener('click', this._loginShowClose);
         });
@@ -164,11 +166,23 @@ class App {
         this._setLocalStorage('workouts');
     }
 
+    _getClock() {
+        const date = new Date();
+        const hours = String(date.getHours()).padStart(2, '0');
+        const minutes = String(date.getMinutes()).padStart(2, '0');
+        clock.innerText = `${hours}:${minutes}`;
+    }
+
     // 운동 데이터를 HTML로 랜더링
     _renderWorkout(workout) {
+        // 현재 날짜를 가져오기
+        const today = new Date();
+        const dateOptions = { year: 'numeric', month: 'long', day: 'numeric' };
+        const formattedDate = today.toLocaleDateString('ko-KR', dateOptions); // 한국어(ko-KR)로 날짜 포맷팅
+
         let workoutHTML = `
             <li class="workout">
-                <h2 class="workout_title">9월 3일 : ${workout.workoutType}</h2>
+                <h2 class="workout_title">${formattedDate} Workout : ${workout.workoutType}</h2>
                 <div class="workout_details">
                     <span class="workout_icon">🏋️</span>
                     <span class="workout_value">${workout.machine}</span>
@@ -193,7 +207,6 @@ class App {
 
         workouts.insertAdjacentHTML('beforeend', workoutHTML); // workouts에 추가
     }
-
     // 로컬스토리지에 데이터 저장
     _setLocalStorage(key) {
         if (key === 'workouts' && this.#username) {
