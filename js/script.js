@@ -165,34 +165,38 @@ class App {
 
     // 운동 데이터를 HTML로 랜더링
     _renderWorkout(workout) {
+        // 현재 날짜를 가져오기
+        const today = new Date();
+        const dateOptions = { year: 'numeric', month: 'long', day: 'numeric' };
+        const formattedDate = today.toLocaleDateString('ko-KR', dateOptions); // 한국어(ko-KR)로 날짜 포맷팅
+
         let workoutHTML = `
-            <li class="workout">
-                <h2 class="workout_title">9월 3일 : ${workout.workoutType}</h2>
-                <div class="workout_details">
-                    <span class="workout_icon">🏋️</span>
-                    <span class="workout_value">${workout.machine}</span>
-                </div>
-                <div class="workout__details">
-                    <span class="workout_icon">🔥</span>
-                    <span class="workout_value">${workout.weight}</span>
-                    <span class="workout_unit">kg</span>
-                </div>
-                <div class="workout__details">
-                    <span class="workout_icon">🎯</span>
-                    <span class="workout_value">${workout.reps}</span>
-                    <span class="workout_unit">회</span>
-                </div>
-                <div class="workout__details">
-                    <span class="workout_icon">⚡️</span>
-                    <span class="workout_value">${workout.sets}</span>
-                    <span class="workout_unit">set</span>
-                </div>
-            </li>
-        `;
+        <li class="workout">
+            <h2 class="workout_title">${formattedDate} Workout : ${workout.workoutType}</h2>
+            <div class="workout_details">
+                <span class="workout_icon">🏋️</span>
+                <span class="workout_value">${workout.machine}</span>
+            </div>
+            <div class="workout__details">
+                <span class="workout_icon">🔥</span>
+                <span class="workout_value">${workout.weight}</span>
+                <span class="workout_unit">kg</span>
+            </div>
+            <div class="workout__details">
+                <span class="workout_icon">🎯</span>
+                <span class="workout_value">${workout.reps}</span>
+                <span class="workout_unit">회</span>
+            </div>
+            <div class="workout__details">
+                <span class="workout_icon">⚡️</span>
+                <span class="workout_value">${workout.sets}</span>
+                <span class="workout_unit">set</span>
+            </div>
+        </li>
+    `;
 
         workouts.insertAdjacentHTML('beforeend', workoutHTML); // workouts에 추가
     }
-
     // 로컬스토리지에 데이터 저장
     _setLocalStorage(key) {
         if (key === 'workouts' && this.#username) {
@@ -229,3 +233,13 @@ class App {
 }
 
 const app = new App();
+
+function getClock() {
+    const date = new Date();
+    const hours = String(date.getHours()).padStart(2, '0');
+    const minutes = String(date.getMinutes()).padStart(2, '0');
+    clock.innerText = `${hours}:${minutes}`;
+}
+
+getClock(); // 시계 즉시 호출
+setInterval(getClock, 1000);
