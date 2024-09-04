@@ -112,33 +112,6 @@ class App {
         const [form, ...workoutsEl] = Array.from(workouts.children);
         workoutsEl.forEach((el) => el.remove());
 
-        // GSAP TEST
-        // gsap.from(logo, {
-        //     x: -400,
-        //     duration: 1,
-        //     opacity: 0,
-        // });
-        // gsap.from(mainBox, {
-        //     x: -400,
-        //     duration: 1.5,
-        //     opacity: 0,
-        // });
-        // gsap.from(btnBox, {
-        //     y: -400,
-        //     duration: 1.75,
-        //     opacity: 0,
-        // });
-        // gsap.from(btnBox2, {
-        //     y: -400,
-        //     duration: 2,
-        //     opacity: 0,
-        // });
-        // gsap.from(workouts, {
-        //     x: 400,
-        //     duration: 2.25,
-        //     opacity: 0,
-        // });
-
         this._getWorkoutLocalStorage(); // 로그인 시 운동 데이터를 불러오는 부분 추가
     }
 

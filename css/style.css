@@ -38,7 +38,7 @@ body {
     height: 100vh;
 
     overscroll-behavior-y: none;
-    background: var(--color-brand--2);
+    background: var(--color-brand--4);
     padding: 3rem;
 }
 
@@ -193,6 +193,8 @@ img {
     overflow: hidden;
     position: relative;
     text-decoration: none !important;
+
+    z-index: -10;
 }
 
 .login-close-svgIcon {
@@ -266,6 +268,8 @@ img {
     background: white;
     border: none;
     padding: 1.5rem 2rem;
+
+    text-align: center;
     border-radius: 2rem;
     margin-top: 1.5rem;
     box-shadow: #cff0ff 0 1rem 1rem -0.5rem;
@@ -314,7 +318,7 @@ img {
     display: grid;
     grid-template-columns: repeat(9, 1fr);
     grid-template-rows: repeat(9, 1fr);
-    gap: 0.75rem 1rem;
+    gap: 1rem;
 
     position: relative;
     overflow: hidden;
