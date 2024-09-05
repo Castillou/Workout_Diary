@@ -19,26 +19,18 @@
         <div class="icon_box">
             <button class="intro_button">
                 <svg
-                    stroke="#ffffff"
-                    xml:space="preserve"
-                    viewBox="0 0 80 80"
-                    xmlns:xlink="http://www.w3.org/1999/xlink"
+                    width="40"
+                    height="40"
+                    fill="#0092E4"
                     xmlns="http://www.w3.org/2000/svg"
-                    id="Capa_1"
-                    version="1.1"
-                    fill="#ffffff"
+                    data-name="Layer 1"
+                    viewBox="0 0 24 24"
+                    id="github"
                 >
-                    <g stroke-width="0" id="SVGRepo_bgCarrier"></g>
-                    <g stroke-linejoin="round" stroke-linecap="round" id="SVGRepo_tracerCarrier"></g>
-                    <g id="SVGRepo_iconCarrier">
-                        <g>
-                            <path
-                                d="M64,48L64,48h-8V32h8c8.836,0,16-7.164,16-16S72.836,0,64,0c-8.837,0-16,7.164-16,16v8H32v-8c0-8.836-7.164-16-16-16 S0,7.164,0,16s7.164,16,16,16h8v16h-8l0,0l0,0C7.164,48,0,55.164,0,64s7.164,16,16,16c8.837,0,16-7.164,16-16l0,0v-8h16v7.98 c0,0.008-0.001,0.014-0.001,0.02c0,8.836,7.164,16,16,16s16-7.164,16-16S72.836,48.002,64,48z M64,8c4.418,0,8,3.582,8,8 s-3.582,8-8,8h-8v-8C56,11.582,59.582,8,64,8z M8,16c0-4.418,3.582-8,8-8s8,3.582,8,8v8h-8C11.582,24,8,20.417,8,16z M16,72 c-4.418,0-8-3.582-8-8s3.582-8,8-8l0,0h8v8C24,68.418,20.418,72,16,72z M32,48V32h16v16H32z M64,72c-4.418,0-8-3.582-8-8l0,0v-8 h7.999c4.418,0,8,3.582,8,8S68.418,72,64,72z"
-                            ></path>
-                        </g>
-                    </g>
+                    <path
+                        d="M12,2.2467A10.00042,10.00042,0,0,0,8.83752,21.73419c.5.08752.6875-.21247.6875-.475,0-.23749-.01251-1.025-.01251-1.86249C7,19.85919,6.35,18.78423,6.15,18.22173A3.636,3.636,0,0,0,5.125,16.8092c-.35-.1875-.85-.65-.01251-.66248A2.00117,2.00117,0,0,1,6.65,17.17169a2.13742,2.13742,0,0,0,2.91248.825A2.10376,2.10376,0,0,1,10.2,16.65923c-2.225-.25-4.55-1.11254-4.55-4.9375a3.89187,3.89187,0,0,1,1.025-2.6875,3.59373,3.59373,0,0,1,.1-2.65s.83747-.26251,2.75,1.025a9.42747,9.42747,0,0,1,5,0c1.91248-1.3,2.75-1.025,2.75-1.025a3.59323,3.59323,0,0,1,.1,2.65,3.869,3.869,0,0,1,1.025,2.6875c0,3.83747-2.33752,4.6875-4.5625,4.9375a2.36814,2.36814,0,0,1,.675,1.85c0,1.33752-.01251,2.41248-.01251,2.75,0,.26251.1875.575.6875.475A10.0053,10.0053,0,0,0,12,2.2467Z"
+                    ></path>
                 </svg>
-                command
             </button>
         </div>
 
@@ -82,8 +74,10 @@
             <!-- top 로고 박스 -->
             <h1 class="logo hidden">Workout Diary</h1>
             <main class="main_box hidden">
+                <div class="profile"></div>
                 <!-- 환영 메세지 -->
                 <h1 class="welcome hidden">000 님의 운동 일기📓</h1>
+                <p class="subtxt">#목표 #다짐 #오운완</p>
             </main>
 
             <!-- 로그아웃 버튼 -->
@@ -119,20 +113,29 @@
             </div>
 
             <div class="btn_box2 hidden">
-                <button class="btn2 btn2-1">이미지 불러오기</button>
-                <button class="btn2 btn2-2">운동 목록 불러오기</button>
-                <button class="btn2 btn2-3">todo 리스트 불러오기</button>
+                <button class="btn2 btn2-1">이미지</button>
+                <button class="btn2 btn2-2">운동 목록</button>
+                <button class="btn2 btn2-3">todo 리스트</button>
             </div>
-            <div class="clock hidden">09:12</div>
+
+            <div class="top_img"></div>
+
+            <div class="clock hidden"></div>
+
+            <div class="left_video">
+                <video autoplay>
+                    <source src="/img/leftVideo.mp4" />
+                </video>
+            </div>
 
             <!-- 이미지 박스 -->
             <div class="img_box hidden">
                 <img alt="workout image" class="workout_img" />
-                <ul class="dot_box hidden">
+                <!-- <ul class="dot_box hidden">
                     <li class="dot1"></li>
                     <li class="dot2"></li>
                     <li class="dot3"></li>
-                </ul>
+                </ul> -->
             </div>
 
             <!-- 운동 리스트 박스 -->
@@ -194,7 +197,9 @@
             </ul>
 
             <div class="bottom_img hidden">
-                <img src="img/sssurf.svg" alt="" />
+                <video autoplay>
+                    <source src="img/bottomVideo.mp4" type="video/mp4" />
+                </video>
             </div>
         </div>
     </body>
