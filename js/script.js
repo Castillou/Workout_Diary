@@ -48,6 +48,7 @@ class App {
     constructor() {
         this._randomImageLoad();
         this._getUsernameLocalStorage();
+        setInterval(this._getClock, 1000);
 
         loginForm.addEventListener('submit', this._loginSubmit.bind(this));
         workoutForm.addEventListener('submit', this._newWorkout.bind(this));
@@ -130,6 +131,13 @@ class App {
     _hideWorkoutForm() {
         workoutForm.reset();
         workoutForm.classList.add('hidden');
+    }
+
+    _getClock() {
+        const date = new Date();
+        const hours = String(date.getHours()).padStart(2, '0');
+        const minutes = String(date.getMinutes()).padStart(2, '0');
+        clock.innerText = `${hours}:${minutes}`;
     }
 
     // 새 운동데이터를 추가하고 화면에 랜더링
@@ -235,13 +243,3 @@ class App {
 }
 
 const app = new App();
-
-function getClock() {
-    const date = new Date();
-    const hours = String(date.getHours()).padStart(2, '0');
-    const minutes = String(date.getMinutes()).padStart(2, '0');
-    clock.innerText = `${hours}:${minutes}`;
-}
-
-getClock(); // 시계 즉시 호출
-setInterval(getClock, 1000);
