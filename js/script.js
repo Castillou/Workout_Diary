@@ -186,7 +186,7 @@ class App {
 
         let workoutHTML = `
             <li class="workout">
-            <button class="delete_workout">x</button>
+            <button class="delete_workout"></button>
             <h2 class="workout_title">${formattedDate} Workout : ${workout.workoutType}</h2>
             <div class="workout_details">
                     <span class="workout_icon">🏋️</span>

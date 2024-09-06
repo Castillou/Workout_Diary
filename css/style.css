@@ -51,6 +51,82 @@ img {
 }
 
 /* ////////////////////////////////////////////////////////////////////////////// */
+.cls-1 {
+    fill: none;
+    stroke: #485059;
+    stroke-linecap: round;
+    stroke-miterlimit: 10;
+    stroke-width: 11px;
+}
+
+.cls-2 {
+    fill: #485059;
+}
+
+.cls-2,
+.cls-3,
+.cls-4,
+.cls-5,
+.cls-6,
+.cls-7,
+.cls-8,
+.cls-9,
+.cls-10,
+.cls-11,
+.cls-12,
+.cls-13,
+.cls-14 {
+    stroke-width: 0px;
+}
+
+.cls-3 {
+    fill: #f4b9ce;
+}
+
+.cls-4 {
+    fill: #959b9f;
+}
+
+.cls-5 {
+    fill: #f29fc1;
+}
+
+.cls-6 {
+    fill: #ffa8cb;
+}
+
+.cls-7 {
+    fill: #000;
+}
+
+.cls-8 {
+    fill: #5cb38d;
+}
+
+.cls-9 {
+    fill: #57aa87;
+}
+
+.cls-10 {
+    fill: #498a67;
+}
+
+.cls-11 {
+    fill: #9bdfc1;
+}
+
+.cls-12 {
+    fill: #427c5d;
+}
+
+.cls-13 {
+    fill: #d1f1ff;
+}
+
+.cls-14 {
+    fill: #4e9979;
+}
+
 /* 1. 로그인 이전 아이콘 박스 */
 .icon_box {
     position: fixed;
@@ -63,8 +139,8 @@ img {
     display: grid;
     place-items: center;
     background: #e3edf7;
-    padding: 1.4em;
-    border-radius: 10px;
+    padding: 1rem;
+    border-radius: 2rem;
     box-shadow: 6px 6px 10px -1px rgba(0, 0, 0, 0.15), -6px -6px 10px -1px rgba(255, 255, 255, 0.7);
     border: 1px solid rgba(0, 0, 0, 0);
     cursor: pointer;
@@ -76,16 +152,19 @@ img {
         -0.5px -0.5px 0px rgba(255, 255, 255, 1), 0.5px 0.5px 0px rgba(0, 0, 0, 0.15),
         0px 12px 10px -10px rgba(0, 0, 0, 0.05);
     border: 1px solid rgba(0, 0, 0, 0.1);
-    transform: translateY(0.5em);
+    transform: translateY(0.5rem);
 }
 
 .intro_button svg {
+    width: 10rem;
+    height: 10rem;
     transition: transform 0.5s;
 }
 
 .intro_button:hover svg {
     transform: scale(0.9);
     fill: #333333;
+    opacity: 0.5;
 }
 
 /* ////////////////////////////////////////////////////////////////////////////// */
@@ -94,6 +173,7 @@ img {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
+
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -528,16 +608,17 @@ img {
     width: 2.3rem;
     height: 2.3rem;
     border-radius: 0.3rem;
-    font-size: 1.8rem;
+    padding-top: 1px;
 
-    background: var(--color-brand--2);
+    background: url(/img/xmark.svg) var(--color-brand--4) no-repeat center;
     border: none;
 
-    display: flex;
-    align-items: center;
-    justify-content: center;
     cursor: pointer;
 }
+.delete_workout svg {
+    vertical-align: center;
+}
+
 .delete_workout:hover {
     background-color: #ff5f56;
 }
