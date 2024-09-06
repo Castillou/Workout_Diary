@@ -245,3 +245,16 @@ class App {
 }
 
 const app = new App();
+
+// Youtube API TEST
+// const AJAX = async function () {
+//     try {
+//         const res = await fetch('https://www.googleapis.com/youtube/v3/videos');
+//         const data = res.json();
+//         console.log(data);
+//     } catch (err) {
+//         console.error(err);
+//     }
+// };
+
+// AJAX();
