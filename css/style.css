@@ -487,15 +487,19 @@ img {
     cursor: pointer;
 
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-rows: repeat(2, 1fr);
+    grid-template-columns: repeat(4, 1fr);
     gap: 0.75rem 1rem;
     color: var(--color-light--2);
     border: 0.3rem solid #585b6a;
+
+    position: relative;
 }
 .workout_title {
     font-size: 2rem;
     font-weight: 600;
     grid-column: 1 / -1;
+    grid-row: 1 / 2;
 }
 .workout_details {
     display: flex;
@@ -515,6 +519,27 @@ img {
     color: var(--color-light--3);
     text-transform: uppercase;
     font-weight: 800;
+}
+.delete_workout {
+    position: absolute;
+    top: 2rem;
+    right: 2rem;
+
+    width: 2.3rem;
+    height: 2.3rem;
+    border-radius: 0.3rem;
+    font-size: 1.8rem;
+
+    background: var(--color-brand--2);
+    border: none;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+.delete_workout:hover {
+    background-color: #ff5f56;
 }
 
 /* ///////////////////////////////////////////////////////// */
