@@ -243,3 +243,31 @@ class App {
 }
 
 const app = new App();
+
+const modal = document.querySelector('.modal');
+const overlay = document.querySelector('.overlay');
+const openModalBtn = document.getElementById('openModalBtn');
+const closeModalBtn = document.querySelector('.close_modal');
+
+const openModal = function () {
+    modal.classList.add('modal_active');
+    overlay.classList.add('overlay_active');
+};
+
+// 모달 닫기 함수
+const closeModal = function () {
+    modal.classList.remove('modal_active');
+    overlay.classList.remove('overlay_active');
+};
+
+// 이벤트 리스너 설정
+openModalBtn.addEventListener('click', openModal);
+closeModalBtn.addEventListener('click', closeModal);
+overlay.addEventListener('click', closeModal); // 오버레이 클릭 시 모달 닫기
+
+// ESC 키를 눌러서 모달 닫기
+document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && modal.classList.contains('modal_active')) {
+        closeModal();
+    }
+});
