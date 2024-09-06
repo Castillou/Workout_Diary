@@ -487,15 +487,19 @@ img {
     cursor: pointer;
 
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-rows: repeat(2, 1fr);
+    grid-template-columns: repeat(4, 1fr);
     gap: 0.75rem 1rem;
     color: var(--color-light--2);
     border: 0.3rem solid #585b6a;
+
+    position: relative;
 }
 .workout_title {
     font-size: 2rem;
     font-weight: 600;
     grid-column: 1 / -1;
+    grid-row: 1 / 2;
 }
 .workout_details {
     display: flex;
@@ -515,6 +519,154 @@ img {
     color: var(--color-light--3);
     text-transform: uppercase;
     font-weight: 800;
+}
+.delete_workout {
+    position: absolute;
+    top: 2rem;
+    right: 2rem;
+
+    width: 2.3rem;
+    height: 2.3rem;
+    border-radius: 0.3rem;
+    font-size: 1.8rem;
+
+    background: var(--color-brand--2);
+    border: none;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+.delete_workout:hover {
+    background-color: #ff5f56;
+}
+
+/* ///////////////////////////////////////////////////////// */
+.left_video {
+    grid-row: 4 / 10;
+    grid-column: 1 / 2;
+    border-radius: 2rem;
+    overflow: hidden;
+}
+.left_video video {
+    height: 100%;
+    margin-left: -6rem;
+}
+
+/* 운동 이미지 업로드 박스 */
+.img_box {
+    grid-row: 4 / 10;
+    grid-column: 2 / 4;
+
+    border-radius: 2rem;
+    overflow: hidden;
+}
+.img_box img {
+    display: block;
+    /* width: 100%; */
+    height: 100%;
+    margin-left: -7rem;
+}
+/* .dot_box {
+    position: absolute;
+    top: 0.5vw;
+    left: 1vw;
+    display: flex;
+    gap: 0.5vw;
+}
+.dot_box > li {
+    width: 0.8vw;
+    height: 0.8vw;
+    border-radius: 100%;
+    list-style-type: none;
+}
+.dot1 {
+    background-color: #ff5f56;
+}
+.dot2 {
+    background-color: #ffbd2d;
+}
+.dot3 {
+    background-color: #27c93f;
+} */
+
+.btn_box2 {
+    grid-row: 1 / 4;
+    grid-column: 4 / 5;
+
+    background-color: var(--color-light--1);
+    border-radius: 2rem;
+    padding: 1rem;
+
+    display: grid;
+    grid-template-rows: repeat(3, 1fr);
+    gap: 1rem;
+}
+.btn2 {
+    grid-row: 1 / 2;
+    grid-column: 1 / 3;
+
+    border: unset;
+    border-radius: 2rem;
+    background: #efefef;
+
+    color: var(--color-dark--1);
+    font-size: 17px;
+    font-weight: 900;
+
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    transition: all 250ms;
+}
+.btn2:hover {
+    background-color: var(--color-light--3);
+}
+.btn2-2 {
+    grid-row: 2 / 3;
+}
+.btn2-3 {
+    grid-row: 3 / 4;
+}
+
+/* 중간 시계 */
+.clock {
+    grid-row: 4 / 7;
+    grid-column: 4 / 7;
+
+    background: var(--color-gradient);
+    border-radius: 2rem;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-family: 'Work sans', sans-serif;
+    font-size: 15rem;
+    font-weight: 900;
+    color: var(--color-brand--4);
+}
+
+.top_img {
+    grid-row: 1 / 4;
+    grid-column: 5 / 7;
+    border-radius: 2rem;
+    background: url(/img/water.jpg) center no-repeat;
+}
+
+/* todo Box */
+.bottom_img {
+    grid-row: 7 / 10;
+    grid-column: 4 / 10;
+
+    border-radius: 2rem;
+    overflow: hidden;
+}
+.bottom_img video {
+    width: 100%;
 }
 
 /* ///////////////////////////////////////////////////////// */
