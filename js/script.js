@@ -246,12 +246,20 @@ class App {
 
 const app = new App();
 
-// Youtube API TEST
+// const API_KEY = 'AIzaSyCk0L6W7T6oquX_jrgaWHOvdTmeACJe5S4';
+
+// // Youtube API TEST
 // const AJAX = async function () {
 //     try {
-//         const res = await fetch('https://www.googleapis.com/youtube/v3/videos');
-//         const data = res.json();
-//         console.log(data);
+//         const res = await fetch(
+//             `https://www.googleapis.com/youtube/v3/videos?part=snippet&chart=mostPopular&maxResults=25&regionCode=kr&key=${API_KEY}`,
+//             // `https://www.googleapis.com/youtube/v3/playlistItems?part=snippet&maxResults=50&status=&playlistId=PLlrxD0HtieHgS6P6YBu3Bc1DA9TICZ9CM&key=${API_KEY}`,
+//             {
+//                 method: 'GET',
+//             }
+//         );
+//         const data = await res.json();
+//         console.log(`https://www.youtube.com/watch?v=${data.items[1].id}`);
 //     } catch (err) {
 //         console.error(err);
 //     }

@@ -236,8 +236,8 @@ img {
 #wrap {
     width: 100%;
     height: 100%;
-    max-width: 147rem;
-    max-height: 72rem;
+    max-width: 170rem;
+    max-height: 80rem;
 
     display: grid;
     grid-template-columns: repeat(9, 1fr);
