@@ -54,6 +54,8 @@ class App {
         workoutForm.addEventListener('submit', this._newWorkout.bind(this));
         workoutAdd.addEventListener('click', this._showWorkoutForm.bind(this));
         logoutBtn.addEventListener('click', this._init.bind(this));
+        // 운동삭제 버튼 이벤트 핸들러 추가 //
+        workouts.addEventListener('click', this._deleteWorkout.bind(this));
 
         [introBtn, loginClose].forEach((el) => {
             el.addEventListener('click', this._loginShowClose);
@@ -102,7 +104,7 @@ class App {
 
     // 로그인 후 화면 업데이트
     _loginEvent(username) {
-        welcome.innerText = `${username}님의 운동 일기`;
+        welcome.innerText = `${username}님의 운동 일기🔥`;
 
         login.classList.add('hidden');
 
@@ -120,11 +122,11 @@ class App {
 
     // 랜덤 이미지 로드 -> 로그인 한 사람의 이미지 표시
     _randomImageLoad() {
-        const num = Math.floor(Math.random() * 4) + 1;
+        const num = Math.floor(Math.random() * 3) + 1;
         workoutImg.src = `img/workout_img_0${num}.jpg`;
     }
 
-    // 운동 추가 폼을 표시
+    // 운동추가 폼 표시
     _showWorkoutForm() {
         workoutForm.classList.remove('hidden');
     }
@@ -156,7 +158,7 @@ class App {
             return alert('Inputs have to be positive numbers');
 
         // 새로운 운동객체 생성, #workouts배열에 추가
-        let workout = new Workout(type, machine, weight, reps, sets, date);
+        let workout = new Workout(type, machine, weight, reps, sets);
 
         this.#workouts.push(workout);
 
@@ -176,16 +178,18 @@ class App {
     }
 
     // 운동 데이터를 HTML로 랜더링
+
     _renderWorkout(workout) {
         // 현재 날짜를 가져오기
-        const today = new Date(workout.date);
+        const today = new Date();
         const dateOptions = { year: 'numeric', month: 'long', day: 'numeric' };
         const formattedDate = today.toLocaleDateString('ko-KR', dateOptions); // 한국어(ko-KR)로 날짜 포맷팅
 
         let workoutHTML = `
             <li class="workout">
-                <h2 class="workout_title">${formattedDate} Workout : ${workout.workoutType}</h2>
-                <div class="workout_details">
+            <button class="delete_workout">x</button>
+            <h2 class="workout_title">${formattedDate} Workout : ${workout.workoutType}</h2>
+            <div class="workout_details">
                     <span class="workout_icon">🏋️</span>
                     <span class="workout_value">${workout.machine}</span>
                 </div>
@@ -209,6 +213,45 @@ class App {
 
         workouts.insertAdjacentHTML('beforeend', workoutHTML); // workouts에 추가
     }
+
+    // 운동 삭제로직 수정
+    _deleteWorkout(e) {
+        if (!e.target.classList.contains('delete_workout')) return;
+
+        const workoutEl = e.target.closest('.workout');
+        const index = workoutEl.dataset.index;
+
+        // 배열에서 해당 항목 삭제
+        this.#workouts.splice(index, 1);
+
+        // 화면에서 삭제
+        workoutEl.remove();
+
+        // 운동 리스트를 다시 렌더링하여 인덱스를 맞춤
+        this._renderAllWorkouts();
+
+        // LocalStorage 업데이트
+        if (this.#workouts.length === 0) {
+            // 운동 리스트가 비었을 경우, key 자체 삭제
+            localStorage.removeItem(`workouts_${this.#username}`);
+            console.log('운동 리스트가 비어있습니다. 운동 추가 폼을 다시 표시합니다.');
+        } else {
+            // 운동이 남아있을 경우, 업데이트
+            this._setLocalStorage('workouts');
+        }
+    }
+
+    // 전체 운동 항목을 다시 렌더링 (폼을 제외한 부분만 삭제)
+    _renderAllWorkouts() {
+        const workoutsChildren = Array.from(workouts.children);
+        workoutsChildren.forEach((child) => {
+            if (!child.classList.contains('workout_form')) {
+                child.remove();
+            }
+        });
+        this.#workouts.forEach((workout, index) => this._renderWorkout(workout, index));
+    }
+
     // 로컬스토리지에 데이터 저장
     _setLocalStorage(key) {
         if (key === 'workouts' && this.#username) {
