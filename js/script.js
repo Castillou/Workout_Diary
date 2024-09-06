@@ -29,12 +29,13 @@ const repsInput = document.querySelector('.workout_form_input-reps');
 const setsInput = document.querySelector('.workout_form_input-sets');
 
 class Workout {
-    constructor(workoutType, machine, weight, reps, sets) {
+    constructor(workoutType, machine, weight, reps, sets, date) {
         this.workoutType = workoutType;
         this.machine = machine;
         this.weight = weight;
         this.reps = reps;
         this.sets = sets;
+        this.date = date;
     }
 }
 
@@ -145,13 +146,14 @@ class App {
         const weight = +weightInput.value;
         const reps = +repsInput.value;
         const sets = +setsInput.value;
+        const date = new Date().toISOString();
 
         // 입력값의 유효성 검사 -> 아닐경우 alert반환
         if (!validInputs(weight, reps, sets) || !allPositive(weight, reps, sets))
             return alert('Inputs have to be positive numbers');
 
         // 새로운 운동객체 생성, #workouts배열에 추가
-        let workout = new Workout(type, machine, weight, reps, sets);
+        let workout = new Workout(type, machine, weight, reps, sets, date);
 
         this.#workouts.push(workout);
 
@@ -163,12 +165,11 @@ class App {
         this._setLocalStorage('workouts');
     }
 
-    // 운동 데이터를 HTML로 랜더링
     _renderWorkout(workout) {
-        // 현재 날짜를 가져오기
-        const today = new Date();
+        // 운동 데이터의 날짜를 가져오기
+        const workoutDate = new Date(workout.date); // ISO 형식 날짜를 처리
         const dateOptions = { year: 'numeric', month: 'long', day: 'numeric' };
-        const formattedDate = today.toLocaleDateString('ko-KR', dateOptions); // 한국어(ko-KR)로 날짜 포맷팅
+        const formattedDate = workoutDate.toLocaleDateString('ko-KR', dateOptions); // 저장된 날짜로 포맷팅
 
         let workoutHTML = `
         <li class="workout">
@@ -193,10 +194,11 @@ class App {
                 <span class="workout_unit">set</span>
             </div>
         </li>
-    `;
+        `;
 
         workouts.insertAdjacentHTML('beforeend', workoutHTML); // workouts에 추가
     }
+
     // 로컬스토리지에 데이터 저장
     _setLocalStorage(key) {
         if (key === 'workouts' && this.#username) {
