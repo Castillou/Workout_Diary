@@ -7,39 +7,138 @@
 
         <link rel="stylesheet" href="css/style.css" />
 
+        <!-- GSAP TEST -->
+        <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+
         <script defer src="js/script.js"></script>
 
         <title>Workout Diary</title>
     </head>
     <body>
-        <div class="img_box hidden">
-            <img alt="workout image" class="workout_img" />
-            <ul class="dot_box hidden">
-                <li class="dot1"></li>
-                <li class="dot2"></li>
-                <li class="dot3"></li>
-            </ul>
+        <!-- 첫 번째 아이콘 -->
+        <div class="icon_box">
+            <button class="intro_button">
+                <svg
+                    width="40"
+                    height="40"
+                    fill="#0092E4"
+                    xmlns="http://www.w3.org/2000/svg"
+                    data-name="Layer 1"
+                    viewBox="0 0 24 24"
+                    id="github"
+                >
+                    <path
+                        d="M12,2.2467A10.00042,10.00042,0,0,0,8.83752,21.73419c.5.08752.6875-.21247.6875-.475,0-.23749-.01251-1.025-.01251-1.86249C7,19.85919,6.35,18.78423,6.15,18.22173A3.636,3.636,0,0,0,5.125,16.8092c-.35-.1875-.85-.65-.01251-.66248A2.00117,2.00117,0,0,1,6.65,17.17169a2.13742,2.13742,0,0,0,2.91248.825A2.10376,2.10376,0,0,1,10.2,16.65923c-2.225-.25-4.55-1.11254-4.55-4.9375a3.89187,3.89187,0,0,1,1.025-2.6875,3.59373,3.59373,0,0,1,.1-2.65s.83747-.26251,2.75,1.025a9.42747,9.42747,0,0,1,5,0c1.91248-1.3,2.75-1.025,2.75-1.025a3.59323,3.59323,0,0,1,.1,2.65,3.869,3.869,0,0,1,1.025,2.6875c0,3.83747-2.33752,4.6875-4.5625,4.9375a2.36814,2.36814,0,0,1,.675,1.85c0,1.33752-.01251,2.41248-.01251,2.75,0,.26251.1875.575.6875.475A10.0053,10.0053,0,0,0,12,2.2467Z"
+                    ></path>
+                </svg>
+            </button>
         </div>
-        <!-- 전체를 감싸는 박스 -->
-        <div id="wrap">
-            <!-- top 로고 박스 -->
-            <h1 class="logo">Workout Diary</h1>
 
-            <!-- 로그인 & 환영 메세지 -->
-            <div class="mid_box">
+        <!-- 로그인 박스 -->
+        <section class="login hidden">
+            <!-- 로그인 창 닫기 버튼 -->
+            <button class="login-close-button">
+                <svg
+                    class="login-close-svgIcon"
+                    width="25px"
+                    height="25px"
+                    stroke-width="2"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                    color="#ffffff"
+                >
+                    <path
+                        d="M6.75827 17.2426L12.0009 12M17.2435 6.75736L12.0009 12M12.0009 12L6.75827 6.75736M12.0009 12L17.2435 17.2426"
+                        stroke="#ffffff"
+                        stroke-width="2.5"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                    ></path>
+                </svg>
+            </button>
+
+            <!-- 로그인 박스 -->
+            <div class="login_box">
+                <div class="heading">Sign In</div>
                 <!-- 로그인 form -->
                 <form class="login_form">
-                    <input required type="text" class="login_input" />
+                    <input required type="text" class="login_input" placeholder="이름을 입력해주세요." />
                     <input type="submit" value="로그인" class="login_btn" />
                 </form>
+            </div>
+        </section>
 
+        <!-- 메인 화면 -->
+        <div id="wrap" class="hidden">
+            <!-- top 로고 박스 -->
+            <h1 class="logo hidden">Workout Diary</h1>
+            <main class="main_box hidden">
+                <div class="profile"></div>
                 <!-- 환영 메세지 -->
                 <h1 class="welcome hidden">000 님의 운동 일기📓</h1>
+                <p class="subtxt">#목표 #다짐 #오운완</p>
+            </main>
+
+            <!-- 로그아웃 버튼 -->
+            <div class="btn_box hidden">
+                <button class="logout_btn">
+                    <span class="logout_btn_txt">로그아웃</span>
+                    <svg
+                        width="20px"
+                        height="20px"
+                        stroke-width="2.5"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                        stroke="#2d3439"
+                    >
+                        <path
+                            d="M12 12H19M19 12L16 15M19 12L16 9"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                        ></path>
+                        <path
+                            d="M19 6V5C19 3.89543 18.1046 3 17 3H7C5.89543 3 5 3.89543 5 5V19C5 20.1046 5.89543 21 7 21H17C18.1046 21 19 20.1046 19 19V18"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                        ></path>
+                    </svg>
+                </button>
 
                 <!-- 운동 추가 버튼 -->
-                <button class="workout_add hidden">운동 추가</button>
+                <button class="workout_add">운동 추가</button>
+
+                <button class="btn">기능 미정</button>
             </div>
 
+            <div class="btn_box2 hidden">
+                <button class="btn2 btn2-1">이미지</button>
+                <button class="btn2 btn2-2">운동 목록</button>
+                <button class="btn2 btn2-3">todo 리스트</button>
+            </div>
+
+            <div class="top_img"></div>
+
+            <div class="clock hidden"></div>
+
+            <div class="left_video">
+                <video autoplay loop>
+                    <source src="/img/leftVideo.mp4" />
+                </video>
+            </div>
+
+            <!-- 이미지 박스 -->
+            <div class="img_box hidden">
+                <img alt="workout image" class="workout_img" />
+                <!-- <ul class="dot_box hidden">
+                    <li class="dot1"></li>
+                    <li class="dot2"></li>
+                    <li class="dot3"></li>
+                </ul> -->
+            </div>
+
+            <!-- 운동 리스트 박스 -->
             <ul class="workouts hidden">
                 <!-- 운동 입력 form -->
                 <form class="workout_form hidden">
@@ -97,9 +196,11 @@
                 </li> -->
             </ul>
 
-            <button class="logout_btn hidden">
-                <img src="img/log-out.svg" alt="" />
-            </button>
+            <div class="bottom_img hidden">
+                <video autoplay loop>
+                    <source src="img/bottomVideo.mp4" type="video/mp4" />
+                </video>
+            </div>
         </div>
     </body>
 </html>
