@@ -1,14 +1,24 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko">
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <link rel="shortcut icon" type="image/png" href="img/icon.png" />
+        <link rel="shortcut icon" type="image/png" href="img/dino.svg" />
 
         <link rel="stylesheet" href="css/style.css" />
+        <link
+            rel="stylesheet"
+            as="style"
+            crossorigin
+            href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable.min.css"
+        />
 
-        <!-- GSAP TEST -->
-        <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap"
+            rel="stylesheet"
+        />
 
         <script defer src="js/script.js"></script>
 
@@ -350,7 +360,9 @@
             <!-- top 로고 박스 -->
             <h1 class="logo hidden">Workout Diary</h1>
             <main class="main_box hidden">
-                <div class="profile"></div>
+                <div class="profile">
+                    <img src="img/github_img.jpg" alt="" />
+                </div>
                 <!-- 환영 메세지 -->
                 <h1 class="welcome hidden">000 님의 운동 일기📓</h1>
                 <p class="subtxt">#목표 #다짐 #오운완</p>
@@ -385,22 +397,26 @@
                 <!-- 운동 추가 버튼 -->
                 <button class="workout_add">운동 추가</button>
 
-                <button class="btn">기능 미정</button>
+                <button id="openModalBtn">루틴 보기</button>
             </div>
 
             <div class="btn_box2 hidden">
-                <button class="btn2 btn2-1">이미지</button>
-                <button class="btn2 btn2-2">운동 목록</button>
-                <button class="btn2 btn2-3">todo 리스트</button>
+                <video autoplay loop>
+                    <source src="img/top_video_1.mp4" type="video/mp4" />
+                </video>
             </div>
 
-            <div class="top_img"></div>
+            <div class="top_img">
+                <video autoplay loop>
+                    <source src="img/motion.mp4" type="video/mp4" />
+                </video>
+            </div>
 
             <div class="clock hidden"></div>
 
             <div class="left_video">
                 <video autoplay loop>
-                    <source src="/img/leftVideo.mp4" />
+                    <source src="img/leftVideo.mp4" type="video/mp4" />
                 </video>
             </div>
 
@@ -474,9 +490,18 @@
 
             <div class="bottom_img hidden">
                 <video autoplay loop>
-                    <source src="img/bottomVideo.mp4" type="video/mp4" />
+                    <source src="img/blue_buttom.mp4" type="video/mp4" />
                 </video>
             </div>
         </div>
+
+        <div class="modal">
+            <div class="close_modal">&times;</div>
+            <section class="pdf-viewer">
+                <iframe src="img/NewKoreaTrand_K_Photobooth V3.6.pdf"></iframe>
+            </section>
+        </div>
+
+        <div class="overlay"></div>
     </body>
 </html>

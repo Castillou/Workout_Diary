@@ -28,6 +28,11 @@ const weightInput = document.querySelector('.workout_form_input-weight');
 const repsInput = document.querySelector('.workout_form_input-reps');
 const setsInput = document.querySelector('.workout_form_input-sets');
 
+const modal = document.querySelector('.modal');
+const overlay = document.querySelector('.overlay');
+const openModalBtn = document.getElementById('openModalBtn');
+const closeModalBtn = document.querySelector('.close_modal');
+
 class Workout {
     constructor(workoutType, machine, weight, reps, sets, date) {
         this.workoutType = workoutType;
@@ -60,6 +65,18 @@ class App {
         [introBtn, loginClose].forEach((el) => {
             el.addEventListener('click', this._loginShowClose);
         });
+
+        // 이벤트 리스너 설정
+        openModalBtn.addEventListener('click', this._openModal);
+        closeModalBtn.addEventListener('click', this._closeModal);
+        overlay.addEventListener('click', this._closeModal); // 오버레이 클릭 시 모달 닫기
+
+        // ESC 키를 눌러서 모달 닫기
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && modal.classList.contains('modal_active')) {
+                this._closeModal();
+            }
+        });
     }
 
     // 초기화작업
@@ -87,6 +104,7 @@ class App {
         login.classList.toggle('hidden');
         iconBox.classList.toggle('hidden');
         if (login.classList.contains('hidden')) iconBox.classList.remove('hidden');
+        if (iconBox.classList.contains('hidden')) login.classList.remove('hidden');
     }
 
     // 로그인폼 제출 처리
@@ -186,7 +204,9 @@ class App {
 
         let workoutHTML = `
             <li class="workout">
-            <button class="delete_workout"></button>
+            <button class="delete_workout">
+                <img class="delete_workout_img" src="img/xmark.svg" alt="" />
+            </button>
             <h2 class="workout_title">${formattedDate} Workout : ${workout.workoutType}</h2>
             <div class="workout_details">
                     <span class="workout_icon">🏋️</span>
@@ -215,7 +235,7 @@ class App {
 
     // 운동 삭제로직 수정
     _deleteWorkout(e) {
-        if (!e.target.classList.contains('delete_workout')) return;
+        if (!e.target.classList.contains('delete_workout_img')) return;
         console.log(e.target);
 
         const [form, ...workoutsChildren] = Array.from(workouts.children);
@@ -244,6 +264,17 @@ class App {
         workoutsEl.forEach((el) => el.remove());
 
         this.#workouts.forEach((workout) => this._renderWorkout(workout));
+    }
+
+    _openModal() {
+        modal.classList.add('modal_active');
+        overlay.classList.add('overlay_active');
+    }
+
+    // 모달 닫기 함수
+    _closeModal() {
+        modal.classList.remove('modal_active');
+        overlay.classList.remove('overlay_active');
     }
 
     // 로컬스토리지에 데이터 저장
@@ -296,7 +327,8 @@ const app = new App();
 //             }
 //         );
 //         const data = await res.json();
-//         console.log(`https://www.youtube.com/watch?v=${data.items[1].id}`);
+//         console.log(data);
+//         console.log(`https://www.youtube.com/watch?v=${data.items[5].id}`);
 //     } catch (err) {
 //         console.error(err);
 //     }
