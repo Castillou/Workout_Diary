@@ -1,72 +1,680 @@
-@import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable.min.css');
-@import url('https://fonts.googleapis.com/css2?family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap');
+@charset "UTF-8";
 
 :root {
-    --color-brand--1: #ffbd2d;
-    --color-brand--2: linear-gradient(to top left, #6fb1fc, #0052d4);
-    --color-brand--3: #aed4ff;
+	--color-brand--1: #ffbd2d;
+	--color-brand--2: #efefef;
+	--color-brand--3: #6fb1fc;
+	--color-brand--4: #eff7ff;
+	--color-brand--5: #0052d4;
+	--color-gradient: linear-gradient(to top left, #6fb1fc, #0052d4);
 
-    --color-dark--1: #2d3439;
-    --color-dark--2: #42484d;
-    --color-dark--3: #6e6e6e;
+	--color-dark--1: #373b44;
+	--color-dark--2: #42484d;
+	--color-dark--3: #6e6e6e;
 
-    --color-light--2: #f9f9f9;
-    --color-light--3: #d4d4d4;
-    --color-light--4: #888888;
+	--color-light--1: #fafdff;
+	--color-light--2: #f9f9f9;
+	--color-light--3: #d4d4d4;
+	--color-light--4: #888888;
 }
 
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: inherit;
+	margin: 0;
+	padding: 0;
+	box-sizing: inherit;
+	font-family: 'Pretendard Variable', 'Malgun Gothic', sans-serif;
 }
 
 html {
-    font-size: 62.5%;
-    box-sizing: border-box;
+	font-size: 62.5%;
+	box-sizing: border-box;
 }
 
 body {
-    font-family: 'Pretendard', sans-serif;
-    color: var(--color-dark--1);
-    font-weight: 400;
-    line-height: 1.6;
-    height: 100vh;
-    overscroll-behavior-y: none;
+	font-family: inherit;
+	color: var(--color-dark--1);
+	font-weight: 400;
+	line-height: 1.6;
+	height: 100vh;
 
-    background: var(--color-brand--2);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 1rem;
+	overscroll-behavior-y: none;
+	background: var(--color-brand--4);
+	padding: 3rem;
+
+	display: flex;
+	align-items: center;
+	justify-content: center;
 }
 
 img {
-    vertical-align: top;
+	vertical-align: top;
+}
+
+/* ////////////////////////////////////////////////////////////////////////////// */
+.cls-1 {
+	fill: none;
+	stroke: #485059;
+	stroke-linecap: round;
+	stroke-miterlimit: 10;
+	stroke-width: 11px;
+}
+
+.cls-2 {
+	fill: #485059;
+}
+
+.cls-2,
+.cls-3,
+.cls-4,
+.cls-5,
+.cls-6,
+.cls-7,
+.cls-8,
+.cls-9,
+.cls-10,
+.cls-11,
+.cls-12,
+.cls-13,
+.cls-14 {
+	stroke-width: 0px;
+}
+
+.cls-3 {
+	fill: #f4b9ce;
+}
+
+.cls-4 {
+	fill: #959b9f;
+}
+
+.cls-5 {
+	fill: #f29fc1;
+}
+
+.cls-6 {
+	fill: #ffa8cb;
+}
+
+.cls-7 {
+	fill: #000;
+}
+
+.cls-8 {
+	fill: #5cb38d;
+}
+
+.cls-9 {
+	fill: #57aa87;
+}
+
+.cls-10 {
+	fill: #498a67;
+}
+
+.cls-11 {
+	fill: #9bdfc1;
+}
+
+.cls-12 {
+	fill: #427c5d;
+}
+
+.cls-13 {
+	fill: #d1f1ff;
+}
+
+.cls-14 {
+	fill: #4e9979;
+}
+
+/* 1. 로그인 이전 아이콘 박스 */
+.icon_box {
+	position: fixed;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+}
+
+.intro_button {
+	display: grid;
+	place-items: center;
+	background: #e3edf7;
+	padding: 1rem;
+	border-radius: 2rem;
+	box-shadow: 6px 6px 10px -1px rgba(0, 0, 0, 0.15),
+		-6px -6px 10px -1px rgba(255, 255, 255, 0.7);
+	border: 1px solid rgba(0, 0, 0, 0);
+	cursor: pointer;
+	transition: transform 0.5s;
+}
+
+.intro_button:hover {
+	box-shadow: inset 4px 4px 6px -1px rgba(0, 0, 0, 0.2),
+		inset -4px -4px 6px -1px rgba(255, 255, 255, 0.7),
+		-0.5px -0.5px 0px rgba(255, 255, 255, 1),
+		0.5px 0.5px 0px rgba(0, 0, 0, 0.15), 0px 12px 10px -10px rgba(0, 0, 0, 0.05);
+	border: 1px solid rgba(0, 0, 0, 0.1);
+	transform: translateY(0.5rem);
+}
+
+.intro_button svg {
+	width: 10rem;
+	height: 10rem;
+	transition: transform 0.5s;
+}
+
+.intro_button:hover svg {
+	transform: scale(0.9);
+	fill: #333333;
+	opacity: 0.5;
+}
+
+/* ////////////////////////////////////////////////////////////////////////////// */
+.login {
+	position: fixed;
+	top: calc(50% - 17.35rem);
+	left: calc(50% - 16.65rem);
+
+	/* 347 333 */
+
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+
+	animation: pop-in 0.5s cubic-bezier(0.68, -0.55, 0.65, 0.52) forwards;
+}
+
+.login-close-button {
+	width: 4rem;
+	height: 4rem;
+	border-radius: 50%;
+	background-color: rgb(20, 20, 20);
+	border: none;
+	font-weight: 600;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	box-shadow: 0 0 2rem rgba(0, 0, 0, 0.164);
+	cursor: pointer;
+	transition-duration: 0.3s;
+	overflow: hidden;
+	position: relative;
+	text-decoration: none !important;
+
+	z-index: -10;
+}
+
+.login-close-svgIcon {
+	width: 1.7rem;
+	transition-duration: 0.3s;
+}
+
+.login-close-svgIcon path {
+	fill: white;
+}
+
+.login-close-button:hover {
+	width: 12rem;
+	border-radius: 5rem;
+	transition-duration: 0.3s;
+	background-color: rgb(255, 69, 69);
+	align-items: center;
+}
+
+.login-close-button:hover .login-close-svgIcon {
+	width: 2rem;
+	transition-duration: 0.3s;
+	transform: translateY(60%);
+	-webkit-transform: rotate(360deg);
+	-moz-transform: rotate(360deg);
+	-o-transform: rotate(360deg);
+	-ms-transform: rotate(360deg);
+	transform: rotate(360deg);
+}
+
+.login-close-button::before {
+	display: none;
+	content: 'Close';
+	color: white;
+	transition-duration: 0.3s;
+	font-size: 2px;
+}
+
+.login-close-button:hover::before {
+	display: block;
+	padding-right: 1rem;
+	font-size: 1.3rem;
+	opacity: 1;
+	transform: translateY(0px);
+	transition-duration: 0.3s;
+}
+
+/* 2. 로그인 박스 */
+.login_box {
+	max-width: 40vw;
+	background: #f8f9fd;
+	background: linear-gradient(
+		0deg,
+		rgb(255, 255, 255) 0%,
+		rgb(244, 247, 251) 100%
+	);
+	border-radius: 4rem;
+	padding: 2.5rem 3.5rem;
+	border: 0.5rem solid rgb(255, 255, 255);
+	box-shadow: rgba(133, 189, 215, 0.8784313725) 0 3rem 3rem -2rem;
+	margin: 2rem;
+}
+.heading {
+	text-align: center;
+	font-weight: 900;
+	font-size: 3rem;
+	color: rgb(16, 137, 211);
+}
+
+.login_form {
+	margin-top: 1rem;
+}
+.login_input {
+	width: 100%;
+	background: white;
+	border: none;
+	padding: 1.5rem 2rem;
+
+	text-align: center;
+	border-radius: 2rem;
+	margin-top: 1.5rem;
+	box-shadow: #cff0ff 0 1rem 1rem -0.5rem;
+	border-inline: 0.2rem solid transparent;
+}
+
+.login_input::placeholder {
+	color: rgb(170, 170, 170);
+}
+
+.login_input:focus {
+	outline: none;
+	border-inline: 0.2rem solid #12b1d1;
+}
+.login_btn {
+	display: block;
+	width: 100%;
+	font-weight: bold;
+	background: linear-gradient(
+		45deg,
+		rgb(16, 137, 211) 0%,
+		rgb(18, 177, 209) 100%
+	);
+	color: white;
+	padding-block: 1.5rem;
+	margin: 2rem auto;
+	border-radius: 2rem;
+	box-shadow: rgba(133, 189, 215, 0.8784313725) 0 2rem 1rem -1.5rem;
+	border: none;
+
+	transition: all 0.2s ease-in-out;
+}
+
+.login_btn:hover {
+	transform: scale(1.03);
+	box-shadow: rgba(133, 189, 215, 0.8784313725) 0 2.3rem 1rem -2rem;
+}
+
+.login_btn:active {
+	transform: scale(0.95);
+	box-shadow: rgba(133, 189, 215, 0.8784313725) 0 1.3rem 1rem -1rem;
+}
+
+/* ////////////////////////////////////////////////////////////////////////////// */
+/* 3. Wrap - 메인 화면 */
+#wrap {
+	width: 100%;
+	height: 100%;
+	max-width: 170rem;
+	max-height: 80rem;
+
+	display: grid;
+	grid-template-columns: repeat(9, 1fr);
+	grid-template-rows: repeat(9, 1fr);
+	gap: 1.5rem;
+
+	position: relative;
+}
+
+.logo {
+	grid-row: 1 / 2;
+	grid-column: 1 / 3;
+
+	font-family: 'Work sans', sans-serif;
+	font-style: italic;
+	line-height: 1;
+	font-size: 2vw;
+	font-family: 900;
+	text-transform: uppercase;
+
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	border-radius: 2rem;
+
+	color: var(--color-light--1);
+	background-color: var(--color-dark--1);
+
+	animation: slide-in-from-left 2s cubic-bezier(0.075, 0.82, 0.165, 1) forwards;
 }
 
 /* ///////////////////////////////////////////////////////// */
-/* 운동 이미지 업로드 박스 [TEST] */
+.main_box {
+	grid-row: 2 / 4;
+	grid-column: 1 / 3;
+	padding: 3rem 2rem;
+
+	background-color: var(--color-light--1);
+	border-radius: 2rem;
+
+	display: grid;
+	grid-template-rows: repeat(2, 1fr);
+	grid-template-columns: repeat(3, 1fr);
+	gap: 0.2rem;
+
+	animation: slide-in-from-left 3s cubic-bezier(0.075, 0.82, 0.165, 1) forwards;
+}
+.profile {
+	grid-row: 1 / 3;
+	grid-column: 1 / 2;
+
+	border-radius: 100%;
+	overflow: hidden;
+	/* background: url(/img/github_img.jpg) no-repeat center; */
+	/* background-size: 100%; */
+	background-color: var(--color-brand--2);
+}
+.profile img {
+	display: block;
+	width: 100%;
+	height: 100%;
+	/* object-fit: contain; */
+}
+
+.welcome {
+	grid-row: 1 / 2;
+	grid-column: 2 / 4;
+
+	font-size: 2rem;
+	text-align: center;
+	color: var(--color-dark--1);
+
+	display: flex;
+	align-items: flex-end;
+	justify-content: center;
+	padding-left: 1rem;
+}
+.subtxt {
+	grid-row: 2 / 3;
+	grid-column: 2 / 4;
+
+	font-size: 1.4rem;
+	display: flex;
+	justify-content: center;
+	align-items: flex-start;
+}
+
+/* btn box */
+.btn_box {
+	grid-row: 1 / 4;
+	grid-column: 3 / 4;
+
+	background-color: var(--color-light--1);
+	border-radius: 2rem;
+	padding: 1rem;
+
+	display: grid;
+	grid-template-rows: repeat(3, 1fr);
+	gap: 1rem;
+
+	animation: slide-in-from-top 2s cubic-bezier(0.075, 0.82, 0.165, 1) forwards;
+}
+
+/* 로그아웃 버튼
+ */
+.logout_btn {
+	grid-row: 1 / 2;
+
+	border: unset;
+	border-radius: 2rem;
+	background: var(--color-light--1);
+
+	color: var(--color-dark--1);
+	font-size: 17px;
+	font-weight: bold;
+
+	cursor: pointer;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	gap: 0.5rem;
+
+	transition: all 0.25s;
+}
+
+.logout_btn:hover {
+	background-color: #ff5f56;
+	color: var(--color-light--1);
+}
+.logout_btn:hover svg {
+	stroke: var(--color-light--1);
+}
+
+/* 운동 추가 버튼 */
+.workout_add,
+.btn {
+	grid-row: 2 / 3;
+
+	border: unset;
+	border-radius: 2rem;
+	background: var(--color-light--1);
+
+	color: var(--color-dark--1);
+	font-size: 17px;
+	font-weight: bold;
+
+	z-index: 1;
+	position: relative;
+	cursor: pointer;
+
+	transition: all 0.25s;
+	overflow: hidden;
+}
+
+.workout_add::before,
+.btn::before {
+	content: '';
+	position: absolute;
+	top: 0;
+	left: 0;
+
+	width: 0;
+	height: 100%;
+	border-radius: 15px;
+	z-index: -1;
+
+	background-color: var(--color-brand--3);
+
+	transition: all 0.25s;
+}
+
+.workout_add:hover,
+.btn:hover {
+	color: var(--color-light--2);
+}
+.workout_add:hover::before,
+.btn:hover::before {
+	width: 100%;
+}
+
+.btn {
+	grid-row: 3 / 4;
+}
+
+/* ///////////////////////////////////////////////////////// */
+/* 운동 기록 폼 */
+.workout_form {
+	background-color: var(--color-light--3);
+	border-radius: 1rem;
+	padding: 1.5rem 2.75rem;
+	margin-bottom: 1.75rem;
+
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	gap: 0.5rem 2.5rem;
+
+	/* Match height and activity boxes */
+	height: 12rem;
+	transition: all 0.5s, transform 1ms;
+}
+
+.workout_form_row {
+	display: flex;
+	align-items: center;
+}
+.workout_form_label {
+	flex: 0 0 50%;
+	font-size: 1.5rem;
+	font-weight: medium;
+}
+.workout_form_input {
+	width: 100%;
+	padding: 0.3rem 0.5rem;
+	font-family: inherit;
+	font-size: 1.4rem;
+	border: none;
+	border-radius: 0.3rem;
+	background-color: var(--color-light--2);
+	transition: all 0.2s;
+}
+.workout_form_input:focus {
+	outline: none;
+	background-color: #fff;
+}
+.workout_form_btn {
+	display: none;
+}
+
+/* ///////////////////////////////////////////////////////// */
+/* 운동 기록 리스트 표시 */
+.workouts {
+	grid-row: 1 / 7;
+	grid-column: 7 / 10;
+
+	min-width: 44rem;
+	list-style: none;
+	overflow-y: scroll;
+	overflow-x: hidden;
+
+	padding: 2rem;
+	border-radius: 2rem;
+
+	transition: height 0.5s;
+	background-color: var(--color-light--1);
+
+	animation: slide-in-from-right 4s cubic-bezier(0.075, 0.82, 0.165, 1) forwards;
+}
+.workouts::-webkit-scrollbar {
+	width: 0;
+}
+
+.workout {
+	background: var(--color-dark--1);
+	border-radius: 1rem;
+	padding: 1.5rem 2rem;
+	margin-bottom: 1.75rem;
+	cursor: pointer;
+
+	display: grid;
+	grid-template-rows: repeat(2, 1fr);
+	grid-template-columns: repeat(4, 1fr);
+	gap: 0.75rem 1rem;
+	color: var(--color-light--2);
+	border: 0.3rem solid #585b6a;
+
+	position: relative;
+}
+.workout_title {
+	font-size: 2rem;
+	font-weight: medium;
+	grid-column: 1 / -1;
+	grid-row: 1 / 2;
+}
+.workout_details {
+	display: flex;
+	align-items: baseline;
+}
+.workout_icon {
+	font-size: 1.5rem;
+	margin-right: 0.1rem;
+	height: 0.28rem;
+}
+.workout_value {
+	font-size: 1.3rem;
+	margin-right: 0.2rem;
+}
+.workout_unit {
+	font-size: 1.1rem;
+	color: var(--color-light--3);
+	text-transform: uppercase;
+	font-weight: bold;
+}
+.delete_workout {
+	position: absolute;
+	top: 2rem;
+	right: 2rem;
+
+	width: 2.3rem;
+	height: 2.3rem;
+	border-radius: 0.3rem;
+	padding-top: 1px;
+
+	/* background: url(/img/xmark.svg) var(--color-brand--4) no-repeat center; */
+	border: none;
+
+	cursor: pointer;
+}
+
+.delete_workout:hover {
+	background-color: #ff5f56;
+}
+
+/* ///////////////////////////////////////////////////////// */
+.left_video {
+	grid-row: 4 / 10;
+	grid-column: 1 / 2;
+	border-radius: 2rem;
+	overflow: hidden;
+
+	animation: slide-in-from-buttom 5s cubic-bezier(0.075, 0.82, 0.165, 1)
+		forwards;
+}
+.left_video video {
+	height: 100%;
+	margin-left: -6rem;
+}
+
+/* 운동 이미지 업로드 박스 */
 .img_box {
-    width: 30vw;
-    /* height: 40vh; */
-    border-radius: 0.3vw;
-    border-top: 1.8vw solid var(--color-light--3);
+	grid-row: 4 / 10;
+	grid-column: 2 / 4;
 
-    background-color: var(--color-light--);
-    position: relative;
-
-    transition: width 1s;
+	border-radius: 2rem;
+	overflow: hidden;
 }
 .img_box img {
-    display: block;
-    width: 100%;
-    /* margin-top: -3rem; */
-    /* border-radius: 0.5rem; */
+	display: block;
+	/* width: 100%; */
+	height: 100%;
+	margin-left: -7rem;
 }
-.dot_box {
+/* .dot_box {
     position: absolute;
-    top: -1.3vw;
+    top: 0.5vw;
     left: 1vw;
     display: flex;
     gap: 0.5vw;
@@ -85,254 +693,333 @@ img {
 }
 .dot3 {
     background-color: #27c93f;
+} */
+
+.btn_box2 {
+	grid-row: 1 / 4;
+	grid-column: 4 / 5;
+	border-radius: 2rem;
+	overflow: hidden;
+
+	animation: slide-in-from-top 3s cubic-bezier(0.075, 0.82, 0.165, 1) forwards;
+}
+.btn_box2 video {
+	height: 150%;
+}
+
+/* 중간 시계 */
+.clock {
+	grid-row: 4 / 7;
+	grid-column: 4 / 7;
+
+	background: var(--color-gradient);
+	border-radius: 2rem;
+
+	display: flex;
+	align-items: center;
+	justify-content: center;
+
+	font-family: 'Work sans', sans-serif;
+	font-size: 15rem;
+	font-weight: 900;
+	color: var(--color-brand--4);
+}
+
+.top_img {
+	grid-row: 1 / 4;
+	grid-column: 5 / 7;
+	border-radius: 2rem;
+	overflow: hidden;
+
+	animation: slide-in-from-top 6s cubic-bezier(0.075, 0.82, 0.165, 1) forwards;
+}
+.top_img video {
+	height: 100%;
+	margin-left: -6rem;
+}
+
+/* todo Box */
+.bottom_img {
+	grid-row: 7 / 10;
+	grid-column: 4 / 10;
+
+	border-radius: 2rem;
+	overflow: hidden;
+
+	animation: slide-in-from-right 4s cubic-bezier(0.075, 0.82, 0.165, 1) forwards;
+}
+.bottom_img video {
+	width: 100%;
 }
 
 /* ///////////////////////////////////////////////////////// */
-/* Wrap */
-#wrap {
-    display: flex;
-    flex-basis: 50rem;
-    padding: 3rem 4rem;
-    flex-direction: column;
-    border-radius: 0.5rem;
+.left_video {
+	grid-row: 4 / 10;
+	grid-column: 1 / 2;
+	border-radius: 2rem;
+	overflow: hidden;
 
-    background-color: var(--color-light--2);
-    box-shadow: 2px 2px 1rem rgba(0, 0, 0, 0.2);
-
-    position: relative;
+	animation: slide-in-from-buttom 5s cubic-bezier(0.075, 0.82, 0.165, 1)
+		forwards;
+}
+.left_video video {
+	height: 100%;
+	margin-left: -6rem;
 }
 
-.logo {
-    font-family: 'Work sans', sans-serif;
-    line-height: 1;
-    font-family: 900;
-    text-transform: uppercase;
+/* 운동 이미지 업로드 박스 */
+.img_box {
+	grid-row: 4 / 10;
+	grid-column: 2 / 4;
 
-    align-self: center;
-    font-size: 4rem;
-    text-align: center;
-    color: var(--color-brand--1);
-    margin-bottom: 0.5rem;
-}
+	border-radius: 2rem;
+	overflow: hidden;
 
-/* ///////////////////////////////////////////////////////// */
-/* 로그인 박스 & 환영 메세지 */
-.mid_box {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
+	animation: slide-in-from-buttom 4s cubic-bezier(0.075, 0.82, 0.165, 1)
+		forwards;
 }
-.login_form {
-    display: flex;
-    gap: 0.8rem;
-    padding-top: 2rem;
-    flex-direction: column;
-    margin-bottom: 2rem;
+.img_box img {
+	display: block;
+	/* width: 100%; */
+	height: 100%;
+	margin-left: -7rem;
 }
-.login_form .login_input {
-    width: 30rem;
-    height: 3rem;
-    background-color: #fff;
-    border: none;
-    text-align: center;
-    border-radius: 0.5rem;
-    padding: 0 1rem;
-    box-shadow: 0 0 0.2rem rgba(0, 0, 0, 0.3);
-}
-.login_form .login_input:focus {
-    outline: none;
-}
-.login_form .login_btn {
-    /* width: 100px; */
-    line-height: 1;
-    color: #fff;
-    background: var(--color-light--4);
-    border: none;
-    cursor: pointer;
-
-    line-height: 3rem;
-    border-radius: 0.5rem;
-}
-.welcome {
-    /* font-family: 'Nanum Pen Script', cursive; */
-    font-family: 'Pretendard', sans-serif;
-    font-size: 2rem;
-    text-align: center;
-    color: var(--color-dark--1);
-
-    margin-bottom: 1rem;
-}
-
-/* 로그아웃 버튼 */
-.logout_btn {
-    width: 3rem;
-    height: 3rem;
-    border-radius: 100%;
-    border: none;
-    background-color: var(--color-light--3);
-    cursor: pointer;
-    opacity: 1;
-
+/* .dot_box {
     position: absolute;
-    top: 2rem;
-    right: -4rem;
-
-    transition: all 1s ease-in-out;
-}
-
-/* 운동 추가 버튼 */
-.workout_add {
-    width: 10rem;
-    line-height: 1;
-    color: var(--color-dark--2);
-    font-weight: 700;
-    background: var(--color-light--2);
-    border: 1px dashed var(--color-dark--3);
-    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
-
-    padding: 0.8rem 0;
-    border-radius: 2rem;
-    margin-bottom: 2rem;
-    transition: transform 0.2s;
-}
-.workout_add:hover {
-    transform: translateY(-5%);
-}
-
-/* ///////////////////////////////////////////////////////// */
-/* 운동 기록 폼 */
-.workout_form {
-    background-color: var(--color-light--3);
-    border-radius: 0.3rem;
-    padding: 1.5rem 2.75rem;
-    margin-bottom: 1.75rem;
-
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 0.5rem 2.5rem;
-
-    /* Match height and activity boxes */
-    height: 12rem;
-    transition: all 0.5s, transform 1ms;
-}
-
-.workout_form_row {
+    top: 0.5vw;
+    left: 1vw;
     display: flex;
-    align-items: center;
+    gap: 0.5vw;
 }
-.workout_form_label {
-    flex: 0 0 50%;
-    font-size: 1.5rem;
-    font-weight: 600;
+.dot_box > li {
+    width: 0.8vw;
+    height: 0.8vw;
+    border-radius: 100%;
+    list-style-type: none;
 }
-.workout_form_input {
-    width: 100%;
-    padding: 0.3rem 0.5rem;
-    font-family: inherit;
-    font-size: 1.4rem;
-    border: none;
-    border-radius: 0.3rem;
-    background-color: var(--color-light--2);
-    transition: all 0.2s;
+.dot1 {
+    background-color: #ff5f56;
 }
-.workout_form_input:focus {
-    outline: none;
-    background-color: #fff;
+.dot2 {
+    background-color: #ffbd2d;
 }
-.workout_form_btn {
-    display: none;
+.dot3 {
+    background-color: #27c93f;
+} */
+
+/* modal */
+#openModalBtn,
+.btn {
+	grid-row: 3 / 4;
+	border: unset;
+	border-radius: 2rem;
+	background: var(--color-light--1);
+
+	color: var(--color-dark--1);
+	font-size: 17px;
+	font-weight: bold;
+
+	z-index: 1;
+	position: relative;
+	cursor: pointer;
+
+	transition: all 0.25s;
+	overflow: hidden;
+}
+#openModalBtn::before,
+.btn::before {
+	content: '';
+	position: absolute;
+	top: 0;
+	left: 0;
+
+	width: 0;
+	height: 100%;
+	border-radius: 15px;
+	z-index: -1;
+
+	background-color: var(--color-brand--3);
+
+	transition: all 0.25s;
 }
 
-/* ///////////////////////////////////////////////////////// */
-/* 운동 기록 리스트 표시 */
-.workouts {
-    list-style: none;
-    overflow-y: scroll;
-    overflow-x: hidden;
-    height: 50vh;
+#openModalBtn:hover,
+.btn:hover {
+	color: var(--color-light--2);
+}
+#openModalBtn:hover::before,
+.btn:hover::before {
+	width: 100%;
+}
+.modal {
+	display: none;
+	position: fixed;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	width: 110rem;
+	padding: 3rem;
+	background-color: white;
+	box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+	border-radius: 10px;
+	z-index: 1000;
+}
 
-    transition: height 0.5s;
-}
-.workouts::-webkit-scrollbar {
-    width: 0;
+.pdf-viewer iframe {
+	width: 100%;
+	height: 63rem;
+	border: 1px solid #ddd;
+	position: relative;
+	z-index: 1;
 }
 
-.workout {
-    background-color: var(--color-dark--2);
-    border-radius: 0.3rem;
-    padding: 1.5rem 2rem;
-    margin-bottom: 1.75rem;
-    cursor: pointer;
+.modal h1 {
+	margin-top: 0;
+	text-align: center;
+	font-size: 3rem;
+	margin-bottom: 3rem;
+}
 
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
-    gap: 0.75rem 1rem;
-    color: var(--color-light--2);
-    border-left: 0.7rem solid var(--color-brand--3);
+.modal p {
+	font-size: 1.8rem;
+	font-weight: lighter;
 }
-.workout_title {
-    font-size: 2rem;
-    font-weight: 600;
-    grid-column: 1 / -1;
+
+.modal .close_modal {
+	position: absolute;
+	top: 1rem;
+	right: 1rem;
+	font-size: 2rem;
+	line-height: 1;
+	cursor: pointer;
 }
-.workout_details {
-    display: flex;
-    align-items: baseline;
+
+/* 배경 오버레이 스타일 */
+.overlay {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background-color: rgba(0, 0, 0, 0.7);
+	z-index: 900;
+	display: none;
 }
-.workout_icon {
-    font-size: 1.5rem;
-    margin-right: 0.1rem;
-    height: 0.28rem;
+
+/* 모달을 열었을 때 표시되는 클래스 */
+.modal_active {
+	display: block;
 }
-.workout_value {
-    font-size: 1.3rem;
-    margin-right: 0.2rem;
+
+.overlay_active {
+	display: block;
 }
-.workout_unit {
-    font-size: 1.1rem;
-    color: var(--color-light--3);
-    text-transform: uppercase;
-    font-weight: 800;
+
+/* 배경 오버레이 스타일 */
+.overlay {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background-color: rgba(0, 0, 0, 0.7);
+	z-index: 900;
+	display: none;
+}
+
+/* 모달을 열었을 때 표시되는 클래스 */
+.modal_active {
+	display: block;
+}
+
+.overlay_active {
+	display: block;
 }
 
 /* //////////////////////////////////////////////////////////////////////////////// */
-/* 로그인 시 step 1 : 환영메세지, 운동추가 버튼 hidden class 제거 */
-.welcome.hidden {
-    display: none;
-}
-.workout_add.hidden {
-    display: none;
-}
-
-/* 추가 기능 : 이미지 박스 생성 */
-.img_box.hidden {
-    width: 0;
-    /* display: none; */
-}
-.dot_box.hidden {
-    display: none;
+/* 로그인 시 step 1 */
+/* logo, main_box, btn_box, btn_box2, clock */
+.icon_box.hidden,
+#wrap.hidden,
+.logo.hidden,
+.main_box.hidden,
+.login.hidden,
+.btn_box.hidden,
+.btn_box2.hidden,
+.clock.hidden {
+	display: none;
 }
 
-/* 로그인 시 step 2 : 로그인 폼 숨기고, 운동 리스트 높이 주기 */
-.login_form.hidden {
-    display: none;
-}
-.logout_btn.hidden {
-    right: 1rem;
-    opacity: 0;
-    z-index: -10;
+/* img_box, bottom_img, workouts */
+.img_box.hidden,
+.bottom_img.hidden,
+.workouts.hidden {
+	display: none;
 }
 
 /* 운동 추가 버튼 클릭 시 -> workout_form hidden class 제거 */
 .workout_form.hidden {
-    transform: translateY(-30rem);
-    height: 0;
-    padding: 0 2.25rem;
-    margin-bottom: 0;
-    opacity: 0;
+	transform: translateY(-30rem);
+	height: 0;
+	padding: 0 2.25rem;
+	margin-bottom: 0;
+	opacity: 0;
 }
 
-.workouts.hidden {
-    height: 0;
+@keyframes pop-in {
+	0% {
+		transform: scale(0);
+		opacity: 0;
+	}
+	80% {
+		transform: scale(1.1);
+		opacity: 1;
+	}
+	100% {
+		transform: scale(1);
+	}
+}
+
+@keyframes slide-in-from-left {
+	0% {
+		opacity: 0;
+		transform: translateX(-100%);
+	}
+	100% {
+		opacity: 1;
+		transform: translateX(0);
+	}
+}
+
+@keyframes slide-in-from-right {
+	0% {
+		opacity: 0;
+		transform: translateX(100%);
+	}
+	100% {
+		opacity: 1;
+		transform: translateX(0);
+	}
+}
+
+@keyframes slide-in-from-top {
+	0% {
+		opacity: 0;
+		transform: translateY(-100%);
+	}
+	100% {
+		opacity: 1;
+		transform: translateX(0);
+	}
+}
+
+@keyframes slide-in-from-buttom {
+	0% {
+		opacity: 0;
+		transform: translateY(100%);
+	}
+	100% {
+		opacity: 1;
+		transform: translateX(0);
+	}
 }
